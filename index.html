@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Student Grades</title>
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
 
+<script>
+    // This is not an array; this is just a long string
+    const grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+    
+    // Split the string into an array of student data
+    const students = grades.split(", ");
+    
+    const studentNames = [];
+    const studentScores = [];
+
+    let i = 0;
+    while (i < students.length) {
+        const studentData = students[i].split("|"); // Split by the pipe character
+        studentNames[i] = studentData[0]; // Get the name
+        const score = parseInt(studentData[1]); // Convert the score to an integer
+        studentScores[i] = score; // Store the score
+
+        document.write(studentNames[i] + ": " + studentScores[i] + "<br>");
+        
+        i++;
+    }
+</script>
+
+</body>
 </html>
