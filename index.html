@@ -15,18 +15,33 @@
     
     const studentNames = [];
     const studentScores = [];
-
+    let lowest = 100;
+    let highest = 0;
+    let totalStudent = 0;
+    
     let i = 0;
     while (i < students.length) {
         const studentData = students[i].split("|"); // Split by the pipe character
-        studentNames[i] = studentData[0]; // Get the name
+        studentNames[i] = studentData[0].charAt(0).toUpperCase() + studentData[0].slice(1); // Get the name
         const score = parseInt(studentData[1]); // Convert the score to an integer
         studentScores[i] = score; // Store the score
 
         document.write(studentNames[i] + ": " + studentScores[i] + "<br>");
-        
+
+        if (highest < studentScores[i]) {
+            highest = studentScores[i];
+        }
+        if (lowest > studentScores[i]) {
+            lowest = studentScores[i];
+        }    
+        totalStudent += studentScores[i];
         i++;
     }
+
+    document.write("Lowest: " + lowest + "<br>");
+    document.write("Highest: " + highest + "<br>");
+    document.write("Number of students: " + students.length + "<br>");
+    document.write("Average: " + (totalStudent / studentScores.length).toFixed(2));
 </script>
 
 </body>
